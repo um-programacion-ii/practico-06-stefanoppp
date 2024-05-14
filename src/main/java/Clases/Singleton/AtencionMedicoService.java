@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class AtencionMedicoService {
+public final class AtencionMedicoService {
     private static AtencionMedicoService instance;
 
     @Getter @Setter private List<Medico> listadoMedicos;

@@ -8,18 +8,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TestsMedico {
     private MedicoDAO medicoDAO;
-
     @BeforeEach
     public void setUp() {
         medicoDAO = new MedicoDAO();
     }
-
     @Test
     public void testObtenerTodosLosMedicos() {
         List<Medico> medicos = medicoDAO.obtenerTodosLosMedicos();
         assertEquals(3, medicos.size());
     }
-
     @Test
     public void testObtenerMedicoPorIdExistente() {
         Medico medico = medicoDAO.obtenerMedicoPorId(1);
@@ -27,13 +24,11 @@ public class TestsMedico {
         assertEquals(1, medico.getId());
         assertEquals("Dr. Pérez", medico.getNombre());
     }
-
     @Test
     public void testObtenerMedicoPorIdNoExistente() {
         Medico medico = medicoDAO.obtenerMedicoPorId(100);
         assertNull(medico);
     }
-
     @Test
     public void testAgregarMedicoDAO() {
         Medico nuevoMedico = new Medico(4, "Dr. Martínez", "Neurología", true, false);
@@ -53,6 +48,5 @@ public class TestsMedico {
         //Luego que exista dicho par de clave-valor
         assertTrue(paciente.getMedicamentos().containsKey(10));
         assertEquals("Aspirina", paciente.getMedicamentos().get(10));
-
     }
 }

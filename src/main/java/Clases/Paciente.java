@@ -1,6 +1,7 @@
 package Clases;
 import Clases.Singleton.AtencionMedicoService;
 import Clases.DAO.*;
+import Clases.Singleton.GestionFarmaciaService;
 import Clases.Singleton.GestionTurnoService;
 import lombok.Getter;
 import lombok.Setter;
@@ -35,5 +36,11 @@ public class Paciente {
     public boolean resevarTurno() {
         GestionTurnoService turnoService = GestionTurnoService.getInstance();
         return turnoService.generarTurno(this.id, 1, this.obraSocial);
+    }
+    public boolean comprarMedicamento(){
+        GestionFarmaciaService farmaciaService = GestionFarmaciaService.getInstance();
+        boolean stockDisponible = farmaciaService.verificarStock(this.medicamentos);
+        return stockDisponible;
+
     }
 }
